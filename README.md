@@ -19,7 +19,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+	hashthattree.rb c:/testfiles/folder1 c:/testfiles/folder2
 
 ## Contributing
 
