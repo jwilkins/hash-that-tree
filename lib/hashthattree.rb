@@ -1,13 +1,5 @@
 require 'digest/md5'
 
-class FileData
- attr_accessor :file1, :file2
- def initialize(file1, file2)
-    @file1 = file1
-    @file2 = file2
-  end
-end
-
 class HashThatTree
 	attr_accessor :folder1, :folder2
  
@@ -55,6 +47,14 @@ class HashThatTree
 		puts "FileName                Hash1               Hash2"
 		@filehash.each{ |key, value| puts "#{key} is #{value.file1} #{value.file2}" }
 	end
+end
+
+class FileData
+ attr_accessor :file1, :file2
+ def initialize(file1, file2)
+    @file1 = file1
+    @file2 = file2
+  end
 end
 
 htt = HashThatTree.new(ARGV[0], ARGV[1])
