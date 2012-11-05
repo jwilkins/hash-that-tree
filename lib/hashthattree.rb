@@ -1,17 +1,12 @@
 require 'digest/md5'
 
-# The program takes an initial word or phrase from
-# the command line (or in the absence of a
-# parameter from the first line of standard
-# input).  In then reads successive words or
- # phrases from standard input and reports whether
-       # they are angrams of the first word.
-
-#
 # Author::    John Ryan  (mailto:555john@gmail.com)
 # Copyright:: Copyright (c) 2012 John Ryan
 # License::   Distributes under the same terms as Ruby
 
+# The program takes two directories and creates a MD5 hash for every file contained within.
+# It then builds a result set that compares files with the same name and allows for them to be outputted
+# as a csv string
 module HashThatTree
   
   # This class accepts two folders and provides methods to iterate
@@ -68,7 +63,7 @@ module HashThatTree
 			end
 		end
 
-    #Dumps the contents of the FileHashResults object to standard out 
+    #Dumps the contents of the FileHashResults object in csv form to standard out 
 		def display_results
 			puts "FileName,#{@folder1},#{@folder2},Are Equal"
 			@filehash.each{ |key, value| puts "#{value.file_name},#{value.file_hash1},#{value.file_hash2}, #{value.file_hash1==value.file_hash2}" }
