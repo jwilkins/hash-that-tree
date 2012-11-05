@@ -18,8 +18,16 @@ Or install it yourself as:
     $ gem install hash-that-tree
 
 ## Usage
-
+	e.g
 	hashthattree.rb c:/testfiles/folder1 c:/testfiles/folder2
+
+	to test the app
+	ruby lib/hashthattree.rb spec/testfiles/1 spec/testfiles/2
+
+## Creating Documentation
+	Run the following command to generate the documantation
+	
+	rdoc --exclude spec/testfiles
 
 ## Contributing
 
