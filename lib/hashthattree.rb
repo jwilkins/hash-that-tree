@@ -68,8 +68,8 @@ module HashThatTree
 
     #Dumps the contents of the FileHashResults object to standard out 
 		def display_results
-			puts "FileName                Hash1               Hash2"
-			@filehash.each{ |key, value| puts "#{value.file_name} is #{value.file_hash1} #{value.file_hash2}" }
+			puts "FileName,#{@folder1},#{@folder2},Are Equal"
+			@filehash.each{ |key, value| puts "#{value.file_name},#{value.file_hash1},#{value.file_hash2}, #{value.file_hash1==value.file_hash2}" }
 		end
 		
 	end
