@@ -49,6 +49,7 @@ module HashThatTree
 			
 			Dir.foreach(@folder1) do |item|
 				next if item == '.' or item == '..'
+				item = item.downcase
 				the_hash = Digest::MD5.hexdigest(File.read(File.join(@folder1, item)))
 				filedata = FileHashResults.new(item, the_hash, nil)
 				@filehash[item] = filedata
@@ -56,13 +57,14 @@ module HashThatTree
 
 			Dir.foreach(@folder2) do |item|
 				next if item == '.' or item == '..'
+				item = item.downcase
 				the_hash = Digest::MD5.hexdigest(File.read(File.join(@folder2, item)))
 				if(@filehash[item]==nil)
 					filedata = FileHashResults.new(item, nil, the_hash)
 					@filehash[item] = filedata
 					next
 				end
-				@filehash[item].file_hash2 = the_hash	
+				@filehash[item.downcase].file_hash2 = the_hash	
 			end
 		end
 
