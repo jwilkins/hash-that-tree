@@ -29,6 +29,12 @@ Or install it yourself as:
 	
 	rdoc --exclude spec/testfiles
 
+## Create a gem
+	
+	gem update --system
+	gem build hash-that-tree.gemspec
+	gem push hash-that-tree-0.0.1.gem
+
 ## Contributing
 
 1. Fork it
