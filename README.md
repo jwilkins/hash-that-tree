@@ -42,3 +42,11 @@ Or install it yourself as:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## TODO
+I have a few items to do in upcoming releases
+* Add a Command Line Interface
+* Allow multiple folders to be specified
+* Add folder recursion option
+* Add SHA1 
+
