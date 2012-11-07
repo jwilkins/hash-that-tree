@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "hash-that-tree"
-  gem.version       = "0.0.9"
+  gem.version       = "0.1.0"
   gem.authors       = ["John Ryan"]
   gem.email         = ["555john@gmail.com"]
   gem.description   = "Command line app that compares the MD5 hashes of the files in different folders"

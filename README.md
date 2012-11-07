@@ -22,7 +22,10 @@ Or install it yourself as:
 	hashthattree help
 	
 	# run the app on the test files
-	hashthattree compare spec/testfiles/1 spec/testfiles/2
+	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2
+	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2 csv
+	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2 html
+	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2 json
 
 	
 ## Creating Documentation
