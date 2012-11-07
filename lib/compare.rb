@@ -9,16 +9,16 @@ module HashThatTree
   # This class accepts two folders and provides methods to iterate
   # through them creating a hash of each file within and can display 
   # the results for analysis 
-
 	class CompareMD5
-    attr_accessor :folder1, :folder2
+    attr_accessor :folder1 #path to folder containing files to hash
+    attr_accessor :folder2 #path to folder containing files to hash to be compared to folder1
 	 
-	    #initialize the class with the folders to be compared
-  		def initialize(folder1, folder2)
-  			@folder1 = folder1
-  			@folder2 = folder2
-  			@filehash = Hash.new
-			validate
+	   #initialize the class with the folders to be compared
+  	 def initialize(folder1, folder2)
+  	   @folder1 = folder1
+  	   @folder2 = folder2
+  	   filehash = Hash.new
+			 validate
 		end
 	
 		

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hash-that-tree (0.0.8)
+    hash-that-tree (0.0.9)
       thor
 
 GEM

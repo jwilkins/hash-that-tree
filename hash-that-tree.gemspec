@@ -12,10 +12,11 @@ Gem::Specification.new do |gem|
   gem.homepage      = "http://github.com/jnyryan/hash-that-tree"
   gem.extra_rdoc_files = [    "LICENSE.txt",    "README.md"  ]
   gem.files         = `git ls-files`.split($/)
-  #gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.file(f) }
+  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.executable   = 'hashthattree'
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+  gem.rdoc_options << '--title' << 'Rake -- Ruby Make' << '--main' << 'README' << '--line-numbers'
   
   gem.add_dependency "thor"
 end
