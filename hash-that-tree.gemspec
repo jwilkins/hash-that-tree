@@ -20,5 +20,7 @@ Gem::Specification.new do |gem|
   
   gem.rdoc_options << '--exclude spec/testfiles'
   
+  gem.add_dependency "redcarpet"
   gem.add_dependency "thor"
+  gem.add_dependency "yard"
 end
