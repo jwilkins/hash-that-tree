@@ -18,11 +18,11 @@ Or install it yourself as:
     $ gem install hash-that-tree
 
 ## Usage
-	e.g
-	
+	# to view help	
 	hashthattree help
 	
-	hashthattree CompareMD5 spec/testfiles/1 spec/testfiles/2
+	# run the app on the test files
+	hashthattree compare spec/testfiles/1 spec/testfiles/2
 
 	
 ## Creating Documentation
