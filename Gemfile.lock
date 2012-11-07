@@ -1,13 +1,16 @@
 PATH
   remote: .
   specs:
-    hash-that-tree (0.0.1)
+    hash-that-tree (0.0.6)
+      thor
 
 GEM
   remote: https://rubygems.org/
   specs:
+    thor (0.16.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
