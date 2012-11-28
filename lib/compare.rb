@@ -15,10 +15,10 @@ module HashThatTree
 	  attr_accessor :format  #the format to output the results to. csv, html or json
 	   
 	   #initialize the class with the folders to be compared
-  	 def initialize(folder1, folder2, format)
+  	 def initialize(folder1, folder2, options)
   	   @folder1 = folder1
   	   @folder2 = folder2
-  	   @format = format
+  	   @format = options['output']
   	   @filehash = Hash.new
 			 validate
 		end

@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = %q{hash-that-tree}
-  gem.version       = "0.1.1"
+  gem.version       = "0.1.3"
   gem.authors       = ["John Ryan"]
   gem.email         = ["555john@gmail.com"]
   gem.description   = %q{Command line app that compares the MD5 hashes of the files in different folders}
@@ -20,7 +20,9 @@ Gem::Specification.new do |gem|
   
   gem.rdoc_options << '--exclude spec/testfiles'
   
+  gem.add_dependency "mustache"
   gem.add_dependency "redcarpet"
   gem.add_dependency "thor"
   gem.add_dependency "yard"
+  
 end

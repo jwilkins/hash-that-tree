@@ -9,11 +9,14 @@ module HashThatTree
   class CLI < Thor
   	#Create a hash of all files in the folders, compare them and output the results in CSV format
     desc "compare FOLDER1 FOLDER2", "Create a hash of all files in the folders, compare them and output the results in the specified format"
-    def compare(folder1, folder2, output=:csv)
-      htt = CompareMD5.new(folder1, folder2, output)
+    method_option :output, :aliases => "-o", :default => :csv, :desc => "Choose the format to display the results in - csv, json or html"
+  
+    def compare(folder1, folder2)
+      htt = CompareMD5.new(folder1, folder2, options)
       htt.compare
       htt.display_results
       end
   end  
-  CLI.start(ARGV)
+  #CLI.start(ARGV)
+  CLI.start()
 end
