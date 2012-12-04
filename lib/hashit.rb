@@ -9,6 +9,7 @@ module HashThatTree
 	class HashIt
     attr_accessor :format  #the format to output the results to. csv, html or json
     attr_accessor :folders #path to folder containing files to hash
+    attr_accessor :file_data #the container for the hashing results
     attr_accessor :hash_results #the container for the hashing results
      
 	   #initialize the class with the folders to be compared
@@ -16,6 +17,8 @@ module HashThatTree
   	   @format = options['output']
   	   @folders = folders
   	   @hash_results = FileHash.new
+  	   @file_data = []
+       
 			 validate
 		end
 		
@@ -40,9 +43,9 @@ module HashThatTree
           begin
             next if item == '.' or item == '..'
             fullfilename = File.expand_path(folder, item)
-            the_hash = Digest::MD5.hexdigest(File.read(File.join(File.expand_path(folder), item)))
-            item = item.downcase
-            @hash_results.add(item, folder, the_hash)
+            the_hash = Digest::MD5.hexdigest(File.read(File.join(File.expand_path(folder), item.downcase)))
+            hashes << {:filenameitem, :folder, :the_hash}
+            @hash_results.add(hashes)
           rescue
             puts "Skipped:#{item.inspect}"
           end
@@ -62,15 +65,15 @@ module HashThatTree
    
    # If this is a new filename add it to the hash list, 
    # otherwise append it to the existing has value
-   def add(filename, folder, filehash)
+   def add(filedata)
      result = Hash.new
     
-     if(!@hashmap.key?(filename))
-       result[folder] =  filehash
-       @hashmap[filename] = result
-     else(@hashmap.key?(filename))
-       innerItem = @hashmap[filename]
-       innerItem[folder] = filehash
+     if(!@hashmap.key?(filedata.filename))
+       result[filedata.folder] =  filedata.filehash
+       @hashmap[filedata.filename] = result
+     else(@hashmap.key?(filedata.filename))
+       innerItem = @hashmap[filedata.filename]
+       innerItem[filedata.folder] = filedata.filehash
      end
    end
    

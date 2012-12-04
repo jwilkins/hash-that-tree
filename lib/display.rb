@@ -1,4 +1,5 @@
 require 'digest/md5'
+require 'mustache'
 
 # Author::    John Ryan  (mailto:555john@gmail.com)
 # Copyright:: Copyright (c) 2012 John Ryan
