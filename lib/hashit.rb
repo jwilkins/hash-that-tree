@@ -9,11 +9,13 @@ module HashThatTree
 	class HashIt
     attr_accessor :format  #the format to output the results to. csv, html or json
     attr_accessor :folders #path to folder containing files to hash
+    attr_accessor :hash_results #the container for the hashing results
      
 	   #initialize the class with the folders to be compared
   	 def initialize(options, folders )
   	   @format = options['output']
   	   @folders = folders
+  	   @hash_results = FileHash.new
 			 validate
 		end
 		
@@ -32,6 +34,7 @@ module HashThatTree
 		# Iterates through the folders and creates a FileHashResults object containing the
     # results of the comparisson
     def create_hash_results
+      
       @folders.each do |folder|
         Dir.foreach(folder) do |item|
           begin
@@ -39,10 +42,7 @@ module HashThatTree
             fullfilename = File.expand_path(folder, item)
             the_hash = Digest::MD5.hexdigest(File.read(File.join(File.expand_path(folder), item)))
             item = item.downcase
-            #filedata = FileHashResults.new(item, the_hash, nil)
-            #@filehash[item] = filedata
-            p item
-            p the_hash
+            @hash_results.add(item, folder, the_hash)
           rescue
             puts "Skipped:#{item.inspect}"
           end
@@ -52,12 +52,28 @@ module HashThatTree
 	end
 	
 	#Container for the results of the file comparisson 
-	class FileHashResults
-   attr_accessor :file_name, :file_hash1, :file_hash2
-   def initialize(file_name, file_hash1, file_hash2)
-    @file_name = file_name
-    @file_hash1 = file_hash1
-    @file_hash2 = file_hash2
-    end
+  class FileHash
+   
+   attr_accessor :hashmap
+   
+   def initialize()
+    @hashmap = Hash.new()
+   end
+   
+   # If this is a new filename add it to the hash list, 
+   # otherwise append it to the existing has value
+   def add(filename, folder, filehash)
+     result = Hash.new
+    
+     if(!@hashmap.key?(filename))
+       result[folder] =  filehash
+       @hashmap[filename] = result
+     else(@hashmap.key?(filename))
+       innerItem = @hashmap[filename]
+       innerItem[folder] = filehash
+     end
+   end
+   
   end
+  
 end
