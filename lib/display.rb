@@ -9,12 +9,12 @@ module HashThatTree
   
 	class Display
     attr_accessor :format  #the format to output the results to. csv, html or json
-    attr_accessor :hash_results #path to folder containing files to hash
+    attr_accessor :file_data #path to folder containing files to hash
      
 	   #initialize the class with the folders to be compared
-  	 def initialize(options, *hash_results )
+  	 def initialize(options, *file_data )
   	   @format = options['output']
-  	   @hash_results = hash_results
+  	   @file_data = file_data
 		end
 
     #print the contents of the FileHashResults object standard out in the format specified. Default is csv
@@ -34,8 +34,22 @@ module HashThatTree
     
     #Prints the results to standard out in the csv format specified.
 		def display_results_csv
-			puts "FileName,#{@folder1},#{@folder2},Are Equal"
-			@hash_results.each{ |key, value| puts "#{value.file_name},#{value.file_hash1},#{value.file_hash2}, #{value.file_hash1==value.file_hash2}" }
+			#puts "FileName,#{@folder1},#{@folder2},Are Equal"
+			#@hash_results.each{ |key, value| puts "#{value.file_name},#{value.file_hash1},#{value.file_hash2}, #{value.file_hash1==value.file_hash2}" }
+			
+			p @file_data
+			
+template = <<-TEMPLATE
+			{{#for_mustache}}
+          <div>
+              <h1>{{#filename}}</h1>
+              <p>{{folder}}<br/>{{filehash}}</p>
+          </div>
+      {{/for_mustache}}
+ TEMPLATE
+
+    html = Mustache.render(template, @file_data);
+    puts html
 		end
 		
 		#Prints the results to standard out in the csv format specified.

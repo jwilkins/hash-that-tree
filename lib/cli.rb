@@ -20,12 +20,12 @@ module HashThatTree
     
     desc "hashit FOLDERS", "Create a hash of all files in all folder supplied"
     method_option :hashtype, :aliases => "-h", :default => "cmd5", :desc => "Choose the hash algorithm to use - md5 or sha"
-    method_option :output, :aliases => "-o", :default => "json", :desc => "Choose the format to display the results in - csv, json or html"
+    method_option :output, :aliases => "-o", :default => "csv", :desc => "Choose the format to display the results in - csv, json or html"
     method_option :recursive, :aliases => "-r", :type => :boolean, :default => "false", :desc => "true = recurse through sub directories, false = only do top directory"
     def hashit(*folders)
       htt = HashIt.new(options, folders)
       htt.create_hash_results
-      dis = Display.new(options, htt.hash_results)
+      dis = Display.new(options, htt.file_data)
       dis.display_results()
     end
     

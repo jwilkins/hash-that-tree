@@ -16,7 +16,6 @@ module HashThatTree
   	 def initialize(options, folders )
   	   @format = options['output']
   	   @folders = folders
-  	   @hash_results = FileHash.new
   	   @file_data = []
        
 			 validate
@@ -44,8 +43,7 @@ module HashThatTree
             next if item == '.' or item == '..'
             fullfilename = File.expand_path(folder, item)
             the_hash = Digest::MD5.hexdigest(File.read(File.join(File.expand_path(folder), item.downcase)))
-            hashes << {:filenameitem, :folder, :the_hash}
-            @hash_results.add(hashes)
+            @file_data << {:filename=>item, :folder=>folder, :filehash => the_hash}
           rescue
             puts "Skipped:#{item.inspect}"
           end
