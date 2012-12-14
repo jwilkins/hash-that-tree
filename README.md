@@ -1,7 +1,27 @@
 #hash-that-tree
-A ruby command line app that compares the MD5 hashes of the files in different folders
+A ruby command line app prints the MD5 hashes all of the files in an array of folders. 
+The output can be in standard text, csv, html or json. 
 
-It allows the user to enter folder locations, then iterats through the files, creating and comparing the MD5 hashes of the files with the same name
+Also has a compare functionthat takes 2 folder, then iterates through the files and comparing the MD5 hashes of the files with the same name
+
+## Usage
+	# to view help	
+	hashthattree help
+	
+	# Get the hash of all files in a folder (with optional formatting)
+	hashthattree hashit ./spec/testfiles/1 
+	hashthattree hashit ./spec/testfiles/1 -o=csv
+	hashthattree hashit ./spec/testfiles/1 -o=html
+	hashthattree hashit ./spec/testfiles/1 -o=json
+	
+	# Get the hash of all files in multiple folders 
+	hashthattree hashit ./spec/testfiles/1 
+	
+	# run the app on the test files in two folders (this will soon be depreciated)
+	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2
+	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2 csv
+	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2 html
+	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2 json
 
 ## Installation
 
@@ -17,17 +37,6 @@ Or install it yourself as:
 
     $ gem install hash-that-tree
 
-## Usage
-	# to view help	
-	hashthattree help
-	
-	# run the app on the test files
-	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2
-	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2 csv
-	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2 html
-	hashthattree compare ./spec/testfiles/1 ./spec/testfiles/2 json
-
-	
 ## Creating Documentation
 	Run the following command to generate the documantation
 	
@@ -63,7 +72,6 @@ Or install it yourself as:
 	I have a few items to do in upcoming releases
 	* Add Unit Tests
 	* Allow to be used as an API as well as a Command Line Tool
-	* Allow multiple folders to be specified
 	* Add folder recursion option
 	* Add SHA1 
 
