@@ -70,13 +70,14 @@ Or install it yourself as:
 ## TODO
 
 I have a few items to do in upcoming releases
-- [x] Add MD5
-- [x] Allow for single or multiple folders
-- [x] Format output in json 
-- [x] Format output in html
-- [x] Format output in csv
-- [ ] Add Unit Tests
-- [ ] Allow to be used as an API as well as a Command Line Tool
-- [ ] Add folder recursion option
-- [ ] Add SHA1 
+
+	- [x] Add MD5
+	- [x] Allow for single or multiple folders
+	- [x] Format output in json 
+	- [x] Format output in html
+	- [x] Format output in csv
+	- [ ] Add Unit Tests
+	- [ ] Allow to be used as an API as well as a Command Line Tool
+	- [ ] Add folder recursion option
+	- [ ] Add SHA1 
 
